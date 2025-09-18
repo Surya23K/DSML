@@ -9,12 +9,11 @@ df=pd.read_excel('aptitude.xlsx')
 X=df[['x1']]
 y=df[['y1']]
 x_train,x_test,y_train,y_test=train_test_split(X,y,test_size=0.3)
-print(x_train)
-print(y_train)
 clf=LinearRegression()
 clf.fit(x_train,y_train)
 y_pred=clf.predict(x_test)
 print(y_pred)
+print("y=",clf.intercept_,"+",clf.coef_,"* x")
 newvalue=float(input("enter the score:"))
 y_pred=clf.intercept_+clf.coef_*newvalue
 print(y_pred)
